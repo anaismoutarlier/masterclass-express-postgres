@@ -7,6 +7,13 @@ const server = http.createServer(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+/*
+!!!! A EVITER
+app.post("/users", async (req, res) => {
+		const data = await User.create(req.body);
+		res.json({ data })
+	})
+*/
 
 app.get("/rooms", async (req, res) => {
   const { fields = "*" } = req.query;
